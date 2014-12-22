@@ -1,0 +1,20 @@
+#main-search-input {
+	width: 50%;
+}
+
+#advanced-search-toggler {
+	cursor: pointer;
+	color: blue;
+	font-size: 12px;
+}
+
+#hidden-search {
+    display: none;
+}
+#action-zone {
+    margin-top: 15px;
+}
+
+.price-range {
+	width: 1%;
+}
