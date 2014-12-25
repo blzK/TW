@@ -5,6 +5,8 @@ import java.util.Map;
 import fr.upem.m2.tw.mlvbooks.objects.dto.SearchParametersDTO;
 
 public final class SearchParametersFactory {
+  private SearchParametersFactory() {}
+  
   public static SearchParametersDTO createSearchParametersDTO(
       Map<String, String[]> parameters) {
     SearchParametersDTO searchParametersDTO = new SearchParametersDTO();

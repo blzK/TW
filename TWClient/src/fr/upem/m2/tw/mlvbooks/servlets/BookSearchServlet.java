@@ -1,7 +1,6 @@
 package fr.upem.m2.tw.mlvbooks.servlets;
 
 import java.io.IOException;
-import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,7 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import fr.upem.m2.tw.mlvbooks.objects.beans.LightBook;
+import org.dozer.DozerBeanMapper;
+import org.dozer.Mapper;
+
+import fr.upem.m2.tw.mlvbooks.objects.beans.BookList;
 import fr.upem.m2.tw.mlvbooks.objects.dto.SearchParametersDTO;
 import fr.upem.m2.tw.mlvbooks.utils.SearchParametersFactory;
 
@@ -21,17 +23,18 @@ import fr.upem.m2.tw.mlvbooks.utils.SearchParametersFactory;
  */
 @WebServlet("/BookSearchServlet")
 public class BookSearchServlet extends HttpServlet {
-
   /**
    * Serial UID.
    */
-  private static final long serialVersionUID = 6432955793386727798L;
+  private static final long serialVersionUID = 6202802310406217956L;
+  private Mapper mapper;
 
   /**
    * Default constructor.
    */
   public BookSearchServlet() {
     super();
+    mapper = new DozerBeanMapper();
   }
 
   @Override
@@ -40,9 +43,11 @@ public class BookSearchServlet extends HttpServlet {
     SearchParametersDTO searchParameters = 
         SearchParametersFactory.createSearchParametersDTO(
             request.getParameterMap());
-    LightBook book = new LightBook();
-    book.setAuthor(searchParameters.getAuthor());
-    request.setAttribute("bookObject", book);
+    // Search...
+    BookList books = new BookList();
+    // Add books
+    // books.addAll(mapper.map(TheBookList<LightBookDTO>, List<LightBook>.class));
+    request.setAttribute("books", books);
     RequestDispatcher requestDispatcher = 
         request.getRequestDispatcher("index.jsp");
     if (requestDispatcher != null) {

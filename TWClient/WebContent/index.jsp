@@ -1,5 +1,5 @@
 <%@page import="org.apache.jasper.tagplugins.jstl.core.Param"%>
-<%@page import="fr.upem.m2.tw.mlvbooks.objects.beans.LightBook"%>
+<%@page import="fr.upem.m2.tw.mlvbooks.objects.beans.BookList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -31,9 +31,9 @@
             </form>
         </section>
         <section id="resultSection">
-            <c:set var="book" value="${requestScope.bookObject}"/>
-            <c:if test="${book != null}">
-                <c:out value="${book.getAuthor()}" />
+            <c:set var="books" value="${requestScope.books}"/>
+            <c:if test="${books != null}">
+                <!-- display books -->
             </c:if>
         </section>
     </body>

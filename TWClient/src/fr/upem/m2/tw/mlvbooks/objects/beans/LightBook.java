@@ -3,7 +3,7 @@ package fr.upem.m2.tw.mlvbooks.objects.beans;
 import java.io.Serializable;
 
 /**
- * 
+ * A "lightweight" book class. Its sole purpose is to be used as a list element.
  * 
  * @author Mathieu ABOU-AICHI (mathieu.abouaichi@gmail.com)
  */
