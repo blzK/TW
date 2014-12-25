@@ -1,6 +1,7 @@
 package fr.upem.m2.tw.mlvbooks.utils;
 
 import java.util.Map;
+import java.util.Objects;
 
 import fr.upem.m2.tw.mlvbooks.objects.dto.SearchParametersDTO;
 
@@ -9,6 +10,7 @@ public final class SearchParametersFactory {
   
   public static SearchParametersDTO createSearchParametersDTO(
       Map<String, String[]> parameters) {
+    Objects.requireNonNull(parameters);
     SearchParametersDTO searchParametersDTO = new SearchParametersDTO();
     if (!parameters.get("all-criteria")[0].isEmpty()) {
       searchParametersDTO.setAllParameters(parameters.get("all-criteria")[0]);
