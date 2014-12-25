@@ -33,7 +33,20 @@
         <section id="resultSection">
             <c:set var="books" value="${requestScope.books}"/>
             <c:if test="${books != null}">
-                <!-- display books -->
+                <table>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Price (€)</th>
+                    </tr>
+                    <c:forEach var="book" items="${books}">
+                        <tr>
+                            <td><c:out value="${book.getTitle()}"/></td>
+                            <td><c:out value="${book.getAuthor()}"/></td>
+                            <td><c:out value="${book.getPrice()}"/></td>
+                        </tr>
+                    </c:forEach>
+                </table>
             </c:if>
         </section>
     </body>

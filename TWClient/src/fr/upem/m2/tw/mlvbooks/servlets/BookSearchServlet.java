@@ -15,6 +15,7 @@ import org.dozer.Mapper;
 import fr.upem.m2.tw.mlvbooks.objects.beans.BookList;
 import fr.upem.m2.tw.mlvbooks.objects.dto.SearchParametersDTO;
 import fr.upem.m2.tw.mlvbooks.utils.SearchParametersFactory;
+import fr.upem.m2.tw.mlvbooks.utils.mockups.FakeBookCreator;
 
 /**
  * 
@@ -45,6 +46,7 @@ public class BookSearchServlet extends HttpServlet {
             request.getParameterMap());
     // Search...
     BookList books = new BookList();
+    books.addAll(FakeBookCreator.createLightBooks(42));
     // Add books
     // books.addAll(mapper.map(TheBookList<LightBookDTO>, List<LightBook>.class));
     request.setAttribute("books", books);
