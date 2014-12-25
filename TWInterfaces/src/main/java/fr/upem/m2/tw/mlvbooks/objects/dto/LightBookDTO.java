@@ -13,10 +13,17 @@ public class LightBookDTO implements Serializable {
    * Serial UID.
    */
   private static final long serialVersionUID = -7017043037913205922L;
+  private Long id;
   private String title;
   private String author;
   private Double price;
 
+  public Long getId() {
+    return id;
+  }
+  public void setId(Long id) {
+    this.id = id;
+  }
   public String getTitle() {
     return title;
   }

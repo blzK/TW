@@ -7,6 +7,7 @@ public class HeavyBookDTO implements Serializable {
    * Serial UID.
    */
   private static final long serialVersionUID = -9056255495859978430L;
+  private Long id;
   private String title;
   private String author;
   private Double price;
@@ -14,6 +15,12 @@ public class HeavyBookDTO implements Serializable {
   private Integer numberOfPages;
   private String synopsis;
 
+  public Long getId() {
+    return id;
+  }
+  public void setId(Long id) {
+    this.id = id;
+  }
   public String getTitle() {
     return title;
   }

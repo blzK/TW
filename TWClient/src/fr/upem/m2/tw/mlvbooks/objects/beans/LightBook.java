@@ -13,10 +13,17 @@ public class LightBook implements Serializable {
    * Serial UID.
    */
   private static final long serialVersionUID = -8227341757529334726L;
+  private Long id;
   private String title;
   private String author;
   private Double price;
 
+  public Long getId() {
+    return id;
+  }
+  public void setId(Long id) {
+    this.id = id;
+  }
   public String getTitle() {
     return title;
   }
