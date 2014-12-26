@@ -4,8 +4,10 @@ import java.io.Serializable;
 import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * {@link LightBook} container class.
@@ -28,7 +30,7 @@ public class BookList extends AbstractList<LightBook> implements Serializable {
   
   @Override
   public boolean add(LightBook book) {
-    return books.add(book);
+    return books.add(Objects.requireNonNull(book));
   }
   
   @Override
@@ -48,6 +50,11 @@ public class BookList extends AbstractList<LightBook> implements Serializable {
 
   @Override
   public Iterator<LightBook> iterator() {
-    return books.iterator();
+    return Collections.unmodifiableList(books).iterator();
+  }
+
+  @Override
+  public boolean removeAll(Collection<?> c) {
+    throw new UnsupportedOperationException();
   }
 }

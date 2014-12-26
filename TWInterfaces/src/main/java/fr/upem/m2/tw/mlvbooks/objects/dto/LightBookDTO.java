@@ -42,4 +42,17 @@ public class LightBookDTO implements Serializable {
   public void setPrice(Double price) {
     this.price = price;
   }
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    return prime + ((id == null) ? 0 : id.hashCode());
+  }
+  @Override
+  public boolean equals(Object obj) {
+    if (obj == null) {
+      return false;
+    }
+    LightBookDTO other = (LightBookDTO) obj;
+    return other.id == id;
+  }
 }

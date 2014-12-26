@@ -42,4 +42,17 @@ public class LightBook implements Serializable {
   public void setPrice(Double price) {
     this.price = price;
   }
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    return prime + ((id == null) ? 0 : id.hashCode());
+  }
+  @Override
+  public boolean equals(Object obj) {
+    if (obj == null) {
+      return false;
+    }
+    LightBook other = (LightBook) obj;
+    return other.id == id;
+  }
 }

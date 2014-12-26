@@ -58,4 +58,18 @@ public class HeavyBook implements Serializable {
   public void setSynopsis(String synopsis) {
     this.synopsis = synopsis;
   }
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    return prime + ((id == null) ? 0 : id.hashCode());
+  }
+  @Override
+  public boolean equals(Object obj) {
+    if (obj == null) {
+      return false;
+    }
+    HeavyBook other = (HeavyBook) obj;
+    return other.id == id;
+  }
+  
 }
