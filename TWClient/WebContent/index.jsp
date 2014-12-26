@@ -46,9 +46,12 @@
                     <TBODY>
                         <c:forEach var="book" items="${books}">
                             <tr>
-                                <td><c:out value="${book.getTitle()}"/></td>
-                                <td><c:out value="${book.getAuthor()}"/></td>
-                                <td><c:out value="${book.getPrice()}"/></td>
+                                <td><c:out value="${book.title}"/></td>
+                                <td><c:out value="${book.author}"/></td>
+                                <td><c:out value="${book.price}"/></td>
+                                <td>
+                                    <input type="button" class="addToCartButton" onclick="addToCart(${book.id}, '${book.title}')" value="Add to cart"/>
+                                </td>
                             </tr>
                         </c:forEach>
                     </TBODY>
