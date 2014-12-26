@@ -11,10 +11,49 @@
 #hidden-search {
     display: none;
 }
+
 #action-zone {
     margin-top: 15px;
 }
 
+#search-result-table {
+	border: 1px solid black;
+	padding: 5px 0px;
+    width: 90%;
+}
+
+#search-result-table td {
+    border-bottom: 1px solid black;
+}
+
+#search-result-table th {
+	border-bottom: 3px double black !important;
+	cursor: pointer;
+}
+
+.tablesorter-header {
+    background-image: url(../img/tablesorterimg/ice-unsorted.gif); 
+    cursor: pointer; 
+    font-weight: bold; 
+    background-repeat: no-repeat; 
+    background-position: center right; 
+    padding-left: 20px; 
+    border-right: 1px solid #dad9c7; 
+    margin-left: -1px; 
+}
+
+.tablesorter-headerAsc { 
+    background-image: url(../img/tablesorterimg/ice-asc.gif); 
+}
+
+.tablesorter-headerDesc { 
+    background-image: url(../img/tablesorterimg/ice-desc.gif); 
+} 
+
 .price-range {
 	width: 1%;
+}
+
+.separative-lign {
+	margin: 15px 15px 20px 15px; 
 }

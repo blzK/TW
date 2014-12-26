@@ -7,6 +7,7 @@
     <head>
         <link rel="stylesheet" type="text/css" href="style/design.css" media="screen" />
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script type="text/javascript" src="script/tablesorter/jquery.tablesorter.js"></script>
         <script type="text/javascript" src="script/script.js"></script>
         <title>MLV Books</title>
     </head>
@@ -33,19 +34,24 @@
         <section id="resultSection">
             <c:set var="books" value="${requestScope.books}"/>
             <c:if test="${books != null}">
-                <table>
-                    <tr>
-                        <th>Title</th>
-                        <th>Author</th>
-                        <th>Price (€)</th>
-                    </tr>
-                    <c:forEach var="book" items="${books}">
+                <hr class="separative-lign"/>
+                <table id="search-result-table" class="tablesorter">
+                    <THEAD>
                         <tr>
-                            <td><c:out value="${book.getTitle()}"/></td>
-                            <td><c:out value="${book.getAuthor()}"/></td>
-                            <td><c:out value="${book.getPrice()}"/></td>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Price (€)</th>
                         </tr>
-                    </c:forEach>
+                    </THEAD>
+                    <TBODY>
+                        <c:forEach var="book" items="${books}">
+                            <tr>
+                                <td><c:out value="${book.getTitle()}"/></td>
+                                <td><c:out value="${book.getAuthor()}"/></td>
+                                <td><c:out value="${book.getPrice()}"/></td>
+                            </tr>
+                        </c:forEach>
+                    </TBODY>
                 </table>
             </c:if>
         </section>
