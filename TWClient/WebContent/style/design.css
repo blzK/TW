@@ -47,6 +47,10 @@
 	float: right;
 }
 
+#cart-size-prefix {
+	font-size: 12px;
+}
+
 .title-cell {
 	width: 128px;
 }

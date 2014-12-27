@@ -14,7 +14,11 @@
     <body>
         <section id="cart_actions_section">
             <nav>
-                <a href="cart_display.jsp">Display shopping cart</a>
+                <form action="CartDisplayServlet" method="GET">
+                    <input id="book-ids-field" type="hidden" name="ids" value="" />
+                    <button id="cart-display-button" type="submit" disabled="disabled">Display cart</button>
+                    <span id="cart-size-prefix">Cart size: </span><span id="cart-size">0</span>
+                </form>
             </nav>
         </section>
         <section id="searchSection">
