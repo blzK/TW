@@ -6,17 +6,17 @@ import java.util.Iterator;
 
 import org.junit.Test;
 
-public class BookListTest {
+public class BooksTest {
 
   @Test(expected = NullPointerException.class)
   public void testAddWithNullBook() {
-    BookList bookList = new BookList();
+    Books bookList = new Books();
     bookList.add(null);
   }
   
   @Test
   public void testAdd() {
-    BookList bookList = new BookList();
+    Books bookList = new Books();
     LightBook book = new LightBook();
     book.setId(42l);
     bookList.add(book);
@@ -26,18 +26,18 @@ public class BookListTest {
   
   @Test(expected = NullPointerException.class)
   public void testAddAllWithNullBooks() {
-    BookList bookList = new BookList();
+    Books bookList = new Books();
     bookList.addAll(null);
   }
 
   @Test
   public void testAddAll() {
-    BookList bookListA = new BookList();
+    Books bookListA = new Books();
     LightBook bookA = new LightBook();
     bookA.setId(42l);
     LightBook bookB = new LightBook();
     bookB.setId(41l);
-    BookList bookListB = new BookList();
+    Books bookListB = new Books();
     bookListB.add(bookB);
     bookListB.add(bookA);
     bookListA.addAll(bookListB);
@@ -48,19 +48,19 @@ public class BookListTest {
   
   @Test(expected = UnsupportedOperationException.class)
   public void testRemove() {
-    BookList bookListA = new BookList();
+    Books bookListA = new Books();
     bookListA.remove(1);
   }
   
   @Test(expected = UnsupportedOperationException.class)
   public void testRemoveAll() {
-    BookList bookListA = new BookList();
-    bookListA.removeAll(new BookList());
+    Books bookListA = new Books();
+    bookListA.removeAll(new Books());
   }
   
   @Test(expected = UnsupportedOperationException.class)
   public void testIteratorForRemoval() {
-    BookList bookList = new BookList();
+    Books bookList = new Books();
     LightBook book = new LightBook();
     book.setId(42l);
     bookList.add(book);

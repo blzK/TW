@@ -14,7 +14,7 @@ import java.util.Objects;
  * 
  * @author Mathieu ABOU-AICHI (mathieu.abouaichi@gmail.com)
  */
-public class BookList extends AbstractList<LightBook> implements Serializable {
+public class Books extends AbstractList<LightBook> implements Serializable {
   /**
    * Serial UID.
    */
@@ -24,7 +24,7 @@ public class BookList extends AbstractList<LightBook> implements Serializable {
   /**
    * Default constructor.
    */
-  public BookList() {
+  public Books() {
     books = new ArrayList<>();
   }
   

@@ -1,5 +1,5 @@
 <%@page import="org.apache.jasper.tagplugins.jstl.core.Param"%>
-<%@page import="fr.upem.m2.tw.mlvbooks.objects.beans.BookList"%>
+<%@page import="fr.upem.m2.tw.mlvbooks.objects.beans.Books"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
