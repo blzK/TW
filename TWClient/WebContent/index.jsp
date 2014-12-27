@@ -12,13 +12,15 @@
         <title>MLV Books</title>
     </head>
     <body>
-        <section>
-            
+        <section id="cart_actions_section">
+            <nav>
+                <a href="cart_display.jsp">Display shopping cart</a>
+            </nav>
         </section>
         <section id="searchSection">
            <form action="BookSearchServlet" method="GET">
                 <input id="main-search-input" name="all-criteria" placeholder="Title, author, ISBN..." value="" />&nbsp;
-                <span onclick="displayHiddenSearchFields()" id="advanced-search-toggler">advanced search...</span><br/>
+                <span onclick="displayHiddenSearchFields()" id="advanced-search-toggler" class="disabled">advanced search...</span><br/>
                 <div id="hidden-search">
                     <input name="title" placeholder="Title" value="" /><br/>
                     <input name="author" placeholder="Author" value="" /><br/>
@@ -38,18 +40,18 @@
                 <table id="search-result-table" class="tablesorter">
                     <THEAD>
                         <tr>
-                            <th>Title</th>
-                            <th>Author</th>
-                            <th>Price (€)</th>
+                            <th id="title-header-cell">Title</th>
+                            <th id="author-header-cell">Author</th>
+                            <th id="price-header-cell">Price (€)</th>
                         </tr>
                     </THEAD>
                     <TBODY>
                         <c:forEach var="book" items="${books}">
                             <tr>
-                                <td><c:out value="${book.title}"/></td>
-                                <td><c:out value="${book.author}"/></td>
-                                <td><c:out value="${book.price}"/></td>
-                                <td>
+                                <td class="title-cell"><c:out value="${book.title}"/></td>
+                                <td class="author-cell"><c:out value="${book.author}"/></td>
+                                <td class="price-cell"><c:out value="${book.price}"/></td>
+                                <td class="action-cell">
                                     <input type="button" class="addToCartButton" onclick="addToCart(${book.id}, '${book.title}')" value="Add to cart"/>
                                 </td>
                             </tr>

@@ -19,7 +19,7 @@
 #search-result-table {
 	border: 1px solid black;
 	padding: 5px 0px;
-    width: 90%;
+	width: 500px;
 }
 
 #search-result-table td {
@@ -29,6 +29,38 @@
 #search-result-table th {
 	border-bottom: 3px double black !important;
 	cursor: pointer;
+}
+
+#title-header-cell {
+	
+}
+
+#author-header-cell {
+
+}
+
+#price-header-cell {
+	
+}
+
+#cart_actions_section {
+	float: right;
+}
+
+.title-cell {
+	width: 128px;
+}
+
+.author-cell {
+	width: 128px;
+}
+
+.price-cell {
+	width: 128px;
+}
+
+.action-cell {
+	width: 15px;
 }
 
 .tablesorter-header {

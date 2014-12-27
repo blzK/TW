@@ -1,7 +1,7 @@
 $(document).ready(
-		function() { 
-			$("table").tablesorter(); 
-		} 
+	function() { 
+		$("table").tablesorter(); 
+	} 
 ); 
 
 
@@ -20,4 +20,12 @@ function addToCart(id, title) {
 
 function displayHiddenSearchFields() {
 	$("#hidden-search").toggle();
+	var toggler = $("#advanced-search-toggler");
+	if (toggler.hasClass("disabled")) {
+		toggler.removeClass("disabled").addClass("enabled");
+		toggler.text("simple search...");
+	} else {
+		toggler.removeClass("enabled").addClass("disabled");
+		toggler.text("advanced search...");
+	}
 }
