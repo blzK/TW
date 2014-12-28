@@ -16,6 +16,11 @@ $(document).ready(
 	} 
 ); 
 
+/**
+ * Adds a book to the cart.
+ * @param id the book's id.
+ * @param title the books's title.
+ */
 function addToCart(id, title) {
 	var books = new Array();
 	if (!sessionStorage.books) {
@@ -33,6 +38,11 @@ function addToCart(id, title) {
 	alert("The book " + title + " is added to your cart.");
 }
 
+/**
+ * Removes a book from the cart.
+ * @param id the book's id.
+ * @param title the book's title.
+ */
 function removeFromCart(id, title) {
 	if (sessionStorage.books) {
 		var books = getBooksFromSessionStorage();
@@ -45,6 +55,9 @@ function removeFromCart(id, title) {
 	}
 }
 
+/**
+ * Clears the cart.
+ */
 function clearCart() {
 	if (sessionStorage.books) {
 		var emptyArray = new Array();
@@ -53,29 +66,52 @@ function clearCart() {
 	}
 }
 
+/**
+ * Updates the books in the session storage, the hidden field value, the cart
+ * counter and toggles the "display cart" button.
+ * @param books the new books.
+ */
 function updateBooks(books) {
 	updateSessionStorage(books);
 	updateHiddenFieldValue(books);
 	updateCartCounter("" + books.length);
-	displayHiddenSearchFields();
 }
 
+/**
+ * Gets the books from the session storage.
+ * @returns the books.
+ */
 function getBooksFromSessionStorage() {
 	return JSON.parse(sessionStorage.getItem("books"));
 }
 
+/**
+ * Updates the session storage with the new books.
+ * @param books the new books.
+ */
 function updateSessionStorage(books) {
 	sessionStorage.setItem("books", JSON.stringify(books));
 }
 
+/**
+ * Updates the hidden field value.
+ * @param books the value (array) to be converted to string.
+ */
 function updateHiddenFieldValue(books) {
 	$("#book-ids-field").attr("value", JSON.stringify(books));
 }
 
+/**
+ * Updates the cart counter.
+ * @param string the new value.
+ */
 function updateCartCounter(string){
 	$("#cart-size").text(string);
 }
 
+/**
+ * Displays (or hides) the advanced search field.
+ */
 function displayHiddenSearchFields() {
 	$("#hidden-search").toggle();
 	var toggler = $("#advanced-search-toggler");
