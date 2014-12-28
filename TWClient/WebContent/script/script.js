@@ -4,7 +4,7 @@ $(document).ready(
 		if (sessionStorage.books) {
 			var books = getBooksFromSessionStorage();
 			updateHiddenFieldValue(books);
-			$("#cart-size").text("" + books.length);
+			updateCartCounter("" + books.length);
 			if (books.length == 0) {
 				$("#cart-display-button").attr("disabled", "disabled");
 			} else {
@@ -21,13 +21,13 @@ function addToCart(id, title) {
 	if (!sessionStorage.books) {
 		books[0] = id;
 		$("#book-ids-field").attr("value", JSON.stringify(books));
-		$("#cart-size").text("1");
+		updateCartCounter("1");
 		$("#cart-display-button").removeAttr("disabled");
 	} else {
 		books = getBooksFromSessionStorage();
 		books[books.length] = id;
 		updateHiddenFieldValue(books);
-		$("#cart-size").text(parseInt($("#cart-size").text()) + 1);
+		updateCartCounter(parseInt($("#cart-size").text()) + 1);
 	}
 	updateSessionStorage(books);
 	alert("The book " + title + " is added to your cart.");
@@ -39,11 +39,25 @@ function removeFromCart(id, title) {
 		var index = books.indexOf(id);
 		if (index > -1) {
 			books.splice(index, 1);
-			updateHiddenFieldValue(books);
-			updateSessionStorage(books);
+			updateBooks(books);
 			alert("The book " + title + " is now removed from your cart.");
 		}
 	}
+}
+
+function clearCart() {
+	if (sessionStorage.books) {
+		var emptyArray = new Array();
+		updateBooks(emptyArray);
+		alert("The cart is now emptied.");
+	}
+}
+
+function updateBooks(books) {
+	updateSessionStorage(books);
+	updateHiddenFieldValue(books);
+	updateCartCounter("" + books.length);
+	displayHiddenSearchFields();
 }
 
 function getBooksFromSessionStorage() {
@@ -56,6 +70,10 @@ function updateSessionStorage(books) {
 
 function updateHiddenFieldValue(books) {
 	$("#book-ids-field").attr("value", JSON.stringify(books));
+}
+
+function updateCartCounter(string){
+	$("#cart-size").text(string);
 }
 
 function displayHiddenSearchFields() {
