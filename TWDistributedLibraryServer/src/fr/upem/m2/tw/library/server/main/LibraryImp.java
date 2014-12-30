@@ -1,5 +1,6 @@
 package fr.upem.m2.tw.library.server.main;
 
+
 import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
@@ -19,6 +20,7 @@ public class LibraryImp extends UnicastRemoteObject implements Library, Serializ
 	 * Serial UID
 	 */
 	private static final long serialVersionUID = 899577144233055923L;
+	
 	private final Map<Long, BookDTO> books;
 
 	protected LibraryImp() throws RemoteException {
@@ -102,6 +104,23 @@ public class LibraryImp extends UnicastRemoteObject implements Library, Serializ
 		List<BookDTO> results = new ArrayList<BookDTO>();
 		for (Long elementId: books.keySet()) {
 			BookDTO book = books.get(elementId);
+			if (book.getAuthor().equals(author))
+				results.add(book);
+		}
+		return results;
+	}
+	
+	@Override
+	public List<BookDTO> searchByPriceRange(Long minimum, Long maximum) {
+		Objects.requireNonNull(minimum);
+		Objects.requireNonNull(maximum);
+		if (books.isEmpty())
+			return null;
+		List<HeavyBookDTO> results = new ArrayList<HeavyBookDTO>();
+		for (Long elementId: books.keySet()) {
+			HeavyBookDTO heavyBook = books.get(elementId);
+			//Problème avec les HeavyBook 
+			if 
 			if (book.getAuthor().equals(author))
 				results.add(book);
 		}
