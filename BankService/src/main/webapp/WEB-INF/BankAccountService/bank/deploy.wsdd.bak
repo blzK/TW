@@ -1,0 +1,41 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from BankAccountService WSDL service -->
+
+  <service name="BankAccount" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://bank"/>
+      <parameter name="wsdlServiceElement" value="BankAccountService"/>
+      <parameter name="schemaQualified" value="http://bank"/>
+      <parameter name="wsdlServicePort" value="BankAccount"/>
+      <parameter name="className" value="bank.BankAccountSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="BankAccount"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="convert" qname="operNS:convert" xmlns:operNS="http://bank" returnQName="retNS:convertReturn" xmlns:retNS="http://bank" returnType="rtns:double" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:amount" xmlns:pns="http://bank" type="tns:double" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:currencyIn" xmlns:pns="http://bank" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:currencyOut" xmlns:pns="http://bank" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="pay" qname="operNS:pay" xmlns:operNS="http://bank" returnQName="retNS:payReturn" xmlns:retNS="http://bank" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:amount" xmlns:pns="http://bank" type="tns:double" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:currencyName" xmlns:pns="http://bank" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="credit" qname="operNS:credit" xmlns:operNS="http://bank" soapAction="" >
+        <parameter qname="pns:amount" xmlns:pns="http://bank" type="tns:double" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:currencyName" xmlns:pns="http://bank" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getBalance" qname="operNS:getBalance" xmlns:operNS="http://bank" returnQName="retNS:getBalanceReturn" xmlns:retNS="http://bank" returnType="rtns:double" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <parameter name="allowedMethods" value="getBalance pay convert credit"/>
+
+  </service>
+</deployment>

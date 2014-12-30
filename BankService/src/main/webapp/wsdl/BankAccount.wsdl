@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://bank" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://bank" xmlns:intf="http://bank" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://bank" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="convert">
+    <complexType>
+     <sequence>
+      <element name="amount" type="xsd:double"/>
+      <element name="currencyIn" type="xsd:string"/>
+      <element name="currencyOut" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="convertResponse">
+    <complexType>
+     <sequence>
+      <element name="convertReturn" type="xsd:double"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="pay">
+    <complexType>
+     <sequence>
+      <element name="amount" type="xsd:double"/>
+      <element name="currencyName" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="payResponse">
+    <complexType>
+     <sequence>
+      <element name="payReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="credit">
+    <complexType>
+     <sequence>
+      <element name="amount" type="xsd:double"/>
+      <element name="currencyName" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="creditResponse">
+    <complexType/>
+   </element>
+   <element name="getBalance">
+    <complexType/>
+   </element>
+   <element name="getBalanceResponse">
+    <complexType>
+     <sequence>
+      <element name="getBalanceReturn" type="xsd:double"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="convertResponse">
+
+      <wsdl:part element="impl:convertResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getBalanceResponse">
+
+      <wsdl:part element="impl:getBalanceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="payRequest">
+
+      <wsdl:part element="impl:pay" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getBalanceRequest">
+
+      <wsdl:part element="impl:getBalance" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="creditRequest">
+
+      <wsdl:part element="impl:credit" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="convertRequest">
+
+      <wsdl:part element="impl:convert" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="creditResponse">
+
+      <wsdl:part element="impl:creditResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="payResponse">
+
+      <wsdl:part element="impl:payResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="BankAccount">
+
+      <wsdl:operation name="convert">
+
+         <wsdl:input message="impl:convertRequest" name="convertRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:convertResponse" name="convertResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="pay">
+
+         <wsdl:input message="impl:payRequest" name="payRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:payResponse" name="payResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="credit">
+
+         <wsdl:input message="impl:creditRequest" name="creditRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:creditResponse" name="creditResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getBalance">
+
+         <wsdl:input message="impl:getBalanceRequest" name="getBalanceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getBalanceResponse" name="getBalanceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="BankAccountSoapBinding" type="impl:BankAccount">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="convert">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="convertRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="convertResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="pay">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="payRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="payResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="credit">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="creditRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="creditResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getBalance">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getBalanceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getBalanceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="BankAccountService">
+
+      <wsdl:port binding="impl:BankAccountSoapBinding" name="BankAccount">
+
+         <wsdlsoap:address location="http://localhost:8080/BankService/services/BankAccount"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
