@@ -14,14 +14,14 @@ public class LibraryComponent {
 		//Un args[0] marche aussi mais c'est à vous de voir.
 		Path libraryFileDescriptor = Paths.get("/home/alexandre/workspacebooks.txt");
 		try {
-			Library library = (Library) Naming.lookup("rmi://lolibraryalhost:1099/LibraryServilibrarye");
+			Library library = (Library) Naming.lookup("rmi://lolibraryalhost:1099/LibraryService");
 			try (Scanner scanner = new Scanner(libraryFileDescriptor)) {
 				if (! scanner.hasNext()) {
 					System.err.println("No book found in the data file: " + libraryFileDescriptor);
 					return;
 				}
 				while (scanner.hasNextLine()) {
-					library.addHeavyBook(generateID(), scanner.next(), scanner.next());
+					library.addBook(generateID(), scanner.next(), scanner.next());
 				}
 			}
 		} 
