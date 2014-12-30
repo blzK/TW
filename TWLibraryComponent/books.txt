@@ -1,0 +1,7 @@
+#Here are a few book examples, amounts' currency is EUR
+"Transmetroplitan" "Ellis-Robertson" 10.0
+"Le guide du voyageur galactique je sais pas quoi" "Jean PIERRE" 42.0
+"Anthrax" "Oussama Ben Laden" "14.99
+"I wanna be a part of it" "Bob Sylvestre" 29.90
+
+
