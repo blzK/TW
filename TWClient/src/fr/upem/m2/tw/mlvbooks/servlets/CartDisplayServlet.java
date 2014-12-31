@@ -8,9 +8,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.rpc.ServiceException;
 
+import bank.BankAccount;
+import bank.BankAccountServiceLocator;
+import bank.BankAccountSoapBindingStub;
 import fr.upem.m2.tw.mlvbooks.objects.beans.Cart;
-import fr.upem.m2.tw.mlvbooks.utils.CartBuilder;
+import fr.upem.m2.tw.mlvbooks.utils.CartFactory;
 
 /**
  * Servlet implementation class CartDisplayServlet
@@ -37,8 +41,17 @@ public class CartDisplayServlet extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     String ids = request.getParameter("ids");
-    Cart cart = CartBuilder.getCart(ids);
+    Cart cart = CartFactory.getCart(ids);
     request.setAttribute("cart", cart);
+    BankAccount account = null;
+    try {
+      account = new BankAccountServiceLocator().getBankAccount();
+      ((BankAccountSoapBindingStub) account).setMaintainSession(true); 
+      request.setAttribute("accountBalance", account.getBalance());
+    } catch (ServiceException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
     RequestDispatcher requestDispatcher = 
         request.getRequestDispatcher("cart-display.jsp");
     if (requestDispatcher != null) {

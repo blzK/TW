@@ -14,7 +14,17 @@ $(document).ready(
 			$("#cart-display-button").attr("disabled", "disabled");
 		}
 	} 
-); 
+);
+
+/**
+ * Clears the cart and alerts the user.
+ */
+function clearCartAndAlert() {
+	clearCart();
+	$("#cart-display-button").attr("disabled", "disabled");
+	alert("The cart is now emptied.");
+	location.reload();
+}
 
 /**
  * Adds a book to the cart.
@@ -60,9 +70,7 @@ function removeFromCart(id, title) {
  */
 function clearCart() {
 	if (sessionStorage.books) {
-		var emptyArray = new Array();
-		updateBooks(emptyArray);
-		alert("The cart is now emptied.");
+		sessionStorage.removeItem("books");
 	}
 }
 
@@ -109,17 +117,6 @@ function updateCartCounter(string){
 	$("#cart-size").text(string);
 }
 
-/**
- * Displays (or hides) the advanced search field.
- */
-function displayHiddenSearchFields() {
-	$("#hidden-search").toggle();
-	var toggler = $("#advanced-search-toggler");
-	if (toggler.hasClass("disabled")) {
-		toggler.removeClass("disabled").addClass("enabled");
-		toggler.text("simple search...");
-	} else {
-		toggler.removeClass("enabled").addClass("disabled");
-		toggler.text("advanced search...");
-	}
+function goToDetailPage(id) {
+	window.location.replace("BookDetailsServlet?id=" + id);
 }

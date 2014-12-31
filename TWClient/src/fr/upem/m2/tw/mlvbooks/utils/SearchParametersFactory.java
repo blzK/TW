@@ -12,9 +12,6 @@ public final class SearchParametersFactory {
       Map<String, String[]> parameters) {
     Objects.requireNonNull(parameters);
     SearchParametersDTO searchParametersDTO = new SearchParametersDTO();
-    if (!parameters.get("all-criteria")[0].isEmpty()) {
-      searchParametersDTO.setAllParameters(parameters.get("all-criteria")[0]);
-    }
     if (!parameters.get("title")[0].isEmpty()) {
       searchParametersDTO.setTitle(parameters.get("title")[0]);
     }
@@ -23,14 +20,6 @@ public final class SearchParametersFactory {
     }
     if (!parameters.get("isbn")[0].isEmpty()) {
       searchParametersDTO.setISBN(parameters.get("isbn")[0]);
-    }
-    if (!parameters.get("starting-price")[0].isEmpty()) {
-      searchParametersDTO.setStartingPrice(
-          Integer.parseInt(parameters.get("starting-price")[0]));
-    }
-    if (!parameters.get("ending-price")[0].isEmpty()) {
-      searchParametersDTO.setEndingPrice(
-          Integer.parseInt(parameters.get("ending-price")[0]));
     }
     return searchParametersDTO;
   }

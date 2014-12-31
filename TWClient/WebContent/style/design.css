@@ -1,5 +1,5 @@
 #main-search-input {
-	width: 50%;
+	width: 20%;
 }
 
 #advanced-search-toggler {
@@ -51,16 +51,9 @@
 	font-size: 12px;
 }
 
-.title-cell {
+.title-cell, .author-cell, .price-cell {
 	width: 128px;
-}
-
-.author-cell {
-	width: 128px;
-}
-
-.price-cell {
-	width: 128px;
+	cursor: pointer;
 }
 
 .action-cell {

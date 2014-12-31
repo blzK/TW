@@ -7,7 +7,7 @@ import java.io.Serializable;
  * 
  * @author Mathieu ABOU-AICHI (mathieu.abouaichi@gmail.com)
  */
-public class LightBookDTO implements Serializable, BookDTO {
+public class LightBookDTO implements Serializable {
 
   /**
    * Serial UID.
@@ -19,12 +19,6 @@ public class LightBookDTO implements Serializable, BookDTO {
   private Double price;
 
   public LightBookDTO() {
-  }
-  
-  public LightBookDTO(Long id, String title, String author) {
-  	this.id = id;
-  	this.title = title;
-  	this.author = author;
   }
   
   public Long getId() {

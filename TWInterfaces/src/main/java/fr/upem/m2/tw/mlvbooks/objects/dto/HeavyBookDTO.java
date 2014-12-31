@@ -2,7 +2,7 @@ package fr.upem.m2.tw.mlvbooks.objects.dto;
 
 import java.io.Serializable;
 
-public class HeavyBookDTO implements Serializable, BookDTO {
+public class HeavyBookDTO implements Serializable {
   /**
    * Serial UID.
    */
@@ -16,12 +16,6 @@ public class HeavyBookDTO implements Serializable, BookDTO {
   private String synopsis;
 
   public HeavyBookDTO() {
-  }
-  
-  public HeavyBookDTO(Long id, String title, String author) {
-  	this.id = id;
-  	this.title = title;
-  	this.author = author;
   }
   
   public Long getId() {
