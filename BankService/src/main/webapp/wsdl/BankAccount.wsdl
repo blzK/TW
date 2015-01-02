@@ -20,6 +20,27 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
+   <element name="getBalance">
+    <complexType/>
+   </element>
+   <element name="getBalanceResponse">
+    <complexType>
+     <sequence>
+      <element name="getBalanceReturn" type="xsd:double"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="credit">
+    <complexType>
+     <sequence>
+      <element name="amount" type="xsd:double"/>
+      <element name="currencyName" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="creditResponse">
+    <complexType/>
+   </element>
    <element name="pay">
     <complexType>
      <sequence>
@@ -35,41 +56,12 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
-   <element name="credit">
-    <complexType>
-     <sequence>
-      <element name="amount" type="xsd:double"/>
-      <element name="currencyName" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="creditResponse">
-    <complexType/>
-   </element>
-   <element name="getBalance">
-    <complexType/>
-   </element>
-   <element name="getBalanceResponse">
-    <complexType>
-     <sequence>
-      <element name="getBalanceReturn" type="xsd:double"/>
-     </sequence>
-    </complexType>
-   </element>
   </schema>
  </wsdl:types>
 
    <wsdl:message name="convertResponse">
 
       <wsdl:part element="impl:convertResponse" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="getBalanceResponse">
-
-      <wsdl:part element="impl:getBalanceResponse" name="parameters">
 
       </wsdl:part>
 
@@ -83,9 +75,9 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="getBalanceRequest">
+   <wsdl:message name="getBalanceResponse">
 
-      <wsdl:part element="impl:getBalance" name="parameters">
+      <wsdl:part element="impl:getBalanceResponse" name="parameters">
 
       </wsdl:part>
 
@@ -99,6 +91,14 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
+   <wsdl:message name="getBalanceRequest">
+
+      <wsdl:part element="impl:getBalance" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
    <wsdl:message name="convertRequest">
 
       <wsdl:part element="impl:convert" name="parameters">
@@ -107,17 +107,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="creditResponse">
+   <wsdl:message name="payResponse">
 
-      <wsdl:part element="impl:creditResponse" name="parameters">
+      <wsdl:part element="impl:payResponse" name="parameters">
 
       </wsdl:part>
 
    </wsdl:message>
 
-   <wsdl:message name="payResponse">
+   <wsdl:message name="creditResponse">
 
-      <wsdl:part element="impl:payResponse" name="parameters">
+      <wsdl:part element="impl:creditResponse" name="parameters">
 
       </wsdl:part>
 
@@ -137,13 +137,13 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="pay">
+      <wsdl:operation name="getBalance">
 
-         <wsdl:input message="impl:payRequest" name="payRequest">
+         <wsdl:input message="impl:getBalanceRequest" name="getBalanceRequest">
 
        </wsdl:input>
 
-         <wsdl:output message="impl:payResponse" name="payResponse">
+         <wsdl:output message="impl:getBalanceResponse" name="getBalanceResponse">
 
        </wsdl:output>
 
@@ -161,13 +161,13 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="getBalance">
+      <wsdl:operation name="pay">
 
-         <wsdl:input message="impl:getBalanceRequest" name="getBalanceRequest">
+         <wsdl:input message="impl:payRequest" name="payRequest">
 
        </wsdl:input>
 
-         <wsdl:output message="impl:getBalanceResponse" name="getBalanceResponse">
+         <wsdl:output message="impl:payResponse" name="payResponse">
 
        </wsdl:output>
 
@@ -197,17 +197,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="pay">
+      <wsdl:operation name="getBalance">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="payRequest">
+         <wsdl:input name="getBalanceRequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="payResponse">
+         <wsdl:output name="getBalanceResponse">
 
             <wsdlsoap:body use="literal"/>
 
@@ -233,17 +233,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="getBalance">
+      <wsdl:operation name="pay">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="getBalanceRequest">
+         <wsdl:input name="payRequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="getBalanceResponse">
+         <wsdl:output name="payResponse">
 
             <wsdlsoap:body use="literal"/>
 

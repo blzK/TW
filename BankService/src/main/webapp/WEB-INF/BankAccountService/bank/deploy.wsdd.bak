@@ -25,15 +25,15 @@
         <parameter qname="pns:currencyIn" xmlns:pns="http://bank" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:currencyOut" xmlns:pns="http://bank" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
-      <operation name="pay" qname="operNS:pay" xmlns:operNS="http://bank" returnQName="retNS:payReturn" xmlns:retNS="http://bank" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
-        <parameter qname="pns:amount" xmlns:pns="http://bank" type="tns:double" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <parameter qname="pns:currencyName" xmlns:pns="http://bank" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      <operation name="getBalance" qname="operNS:getBalance" xmlns:operNS="http://bank" returnQName="retNS:getBalanceReturn" xmlns:retNS="http://bank" returnType="rtns:double" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
       </operation>
       <operation name="credit" qname="operNS:credit" xmlns:operNS="http://bank" soapAction="" >
         <parameter qname="pns:amount" xmlns:pns="http://bank" type="tns:double" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:currencyName" xmlns:pns="http://bank" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
-      <operation name="getBalance" qname="operNS:getBalance" xmlns:operNS="http://bank" returnQName="retNS:getBalanceReturn" xmlns:retNS="http://bank" returnType="rtns:double" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      <operation name="pay" qname="operNS:pay" xmlns:operNS="http://bank" returnQName="retNS:payReturn" xmlns:retNS="http://bank" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:amount" xmlns:pns="http://bank" type="tns:double" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:currencyName" xmlns:pns="http://bank" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
       <parameter name="allowedMethods" value="getBalance pay convert credit"/>
 
