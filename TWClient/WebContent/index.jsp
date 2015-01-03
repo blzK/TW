@@ -1,6 +1,5 @@
 <%@page import="bank.BankAccountServiceLocator"%>
 <%@page import="bank.BankAccount"%>
-<%@page import="org.apache.jasper.tagplugins.jstl.core.Param"%>
 <%@page import="fr.upem.m2.tw.mlvbooks.objects.beans.Books"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -14,6 +13,10 @@
         <title>MLV Books</title>
     </head>
     <body>
+        <c:set var="newBalance" value="${requestScope.newBalance}"/>
+        <c:if test="${newBalance != null}">
+            <c:out  value="Your new account balance is of: ${newBalance}"/>
+        </c:if>
         <section id="cart_actions_section">
 	        <form action="CartDisplayServlet" method="GET">
 	            <input id="book-ids-field" type="hidden" name="ids" value="" />
